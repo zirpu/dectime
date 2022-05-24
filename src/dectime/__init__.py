@@ -20,7 +20,7 @@ else:
 
 try:
     # Change here if project is renamed and does not equal the package name
-    dist_name = "demo-project"
+    dist_name = "dectime"
     __version__ = version(dist_name)
 except PackageNotFoundError:  # pragma: no cover
     __version__ = "unknown"
@@ -103,10 +103,16 @@ def main(argv=None):
     parser.add_argument('--color', default=False, action='store_true',
                         help="colorize time positions.")
 
+    parser.add_argument('--version', default=False, action='store_true',
+                        help=__version__)
+
     if argv is not None:
         args = parser.parse_args(argv)
     else:
         args = parser.parse_args()
+
+    if args.version:
+        sys.exit(__version__)
 
     a = time_string(args.ts, color=args.color, base=args.base)
     print(a)
