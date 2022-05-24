@@ -2,9 +2,10 @@
 Changelog
 =========
 
-Version 0.1
-===========
+Version 0.3.0
+=============
+- added useful description from the default.
 
-- Feature A added
-- FIX: nasty bug #1729 fixed
-- add your changes here!
+Version 0.2.0
+=============
+- initial upload to pypi.
