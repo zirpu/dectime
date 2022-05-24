@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-"""Decimal time module.
-
-   Assumption:  We're using UTC as the default, and only, timezone.
+"""Decimal time in format YYY:M:W:D H:MM:SS
 """
+# Assumption:  We're using UTC as the default, and only, timezone.
 
 import sys
 import argparse
@@ -12,6 +11,21 @@ import time
 
 from colorama import Fore
 import baseconv
+
+if sys.version_info[:2] >= (3, 8):
+    # TODO: Import directly (no need for conditional) when `python_requires = >= 3.8`
+    from importlib.metadata import PackageNotFoundError, version  # pragma: no cover
+else:
+    from importlib_metadata import PackageNotFoundError, version  # pragma: no cover
+
+try:
+    # Change here if project is renamed and does not equal the package name
+    dist_name = "demo-project"
+    __version__ = version(dist_name)
+except PackageNotFoundError:  # pragma: no cover
+    __version__ = "unknown"
+finally:
+    del version, PackageNotFoundError
 
 
 def return_time_list(ts, base=10):
@@ -77,7 +91,7 @@ def main(argv=None):
 
     """
 
-    parser = argparse.ArgumentParser(description='template cli script')
+    parser = argparse.ArgumentParser(description=__doc__)
 
     parser.add_argument('--debug', default=False, action='store_true',
                         help="debug flag.")
