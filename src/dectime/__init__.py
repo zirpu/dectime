@@ -39,17 +39,11 @@ def return_time_list(ts, base=10):
 def color_time_list(tl):
     """Wraps ansi color codes around string time values in list.
 
-    ANSI color scheme: red, green, yellow, blue, magenta, cyan, white
-
-    ANSI color scheme rainbow: red, yellow, green, cyan, blue, magenta
     :param list tl: list of string values of time parts.
     :returns list:
 
     """
-    colors = [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA,
-              Fore.CYAN, Fore.WHITE]
     colors = [
-
         Fore.MAGENTA,
         Fore.BLUE,
         Fore.CYAN,
